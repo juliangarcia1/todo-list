@@ -1,12 +1,13 @@
 import React from 'react';
+import './ListItem.css';
 
 
 export default class ListItem extends React.Component {
     render() {
         return(
-            <div>
+            <div className="ListItem-container">
                 <form >
-                    <input type="checkbox" value="New Item"/>
+                    <p>New Item</p><input type="checkbox" value="New Item"/>
                 </form>
             </div>       
         );

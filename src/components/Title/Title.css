@@ -1,12 +1,22 @@
-.logos {
-    background-color: blue;
+img{
+    max-width: 100%;
+    max-height: 100%;
+    }
+
+.Title-container {
+    background-color:white;
+    display: flex;
+    align-items: center;
+    
 }
 
-.image{
-    width: 300px;
-    height: 200px;
+.Title-img {
+    /* width: 200px; */
+    height: 80px;
+    margin: 10px 0 10px 0;
+    
 }
 
-.moto {
+.Title-moto {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
