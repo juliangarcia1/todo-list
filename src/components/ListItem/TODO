@@ -1,0 +1,6 @@
+- Remove items
+- Persist items
+- Connect to dynamo through lambdas(axios, API gateway)
+- Use a library to make it look better
+- Authentication
+- DB design 
