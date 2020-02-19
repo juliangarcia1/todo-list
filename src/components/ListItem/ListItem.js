@@ -7,7 +7,12 @@ export default class ListItem extends React.Component {
         return(
             <div className="ListItem-container">
                 <form >
-                    <p>New Item</p><input type="checkbox" value="New Item"/>
+                    {this.props.items.map((value, index)=>{
+                        return(
+                        <div><p key={index}>{value}</p> <input type="checkbox" value="New Item" /> </div>
+                        );
+                    }
+                    )}
                 </form>
             </div>       
         );
