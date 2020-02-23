@@ -4,17 +4,27 @@ import './ListItem.css';
 
 export default class ListItem extends React.Component {
     render() {
-        return(
+        return (
             <div className="ListItem-container">
-                <form >
-                    {this.props.items.map((value, index)=>{
-                        return(
-                        <div><p key={index}>{value}</p> <input type="checkbox" value="New Item" /> </div>
-                        );
-                    }
+                <form>
+                    {this.props.items.map(item => {
+                            return (
+                                <div key={item.key}>
+                                    <div  className="checkbox-label">
+                                        <p >{item.value}</p>
+                                    </div>
+                                    <div className="checkbox">
+                                        <input type="button" onClick={(e) => {
+                                            this.props.onClick(item.key)
+                                        }
+                                        } value="Delete"/>
+                                    </div>
+                                </div>
+                            );
+                        }
                     )}
                 </form>
-            </div>       
+            </div>
         );
     }
 }
