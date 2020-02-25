@@ -1,6 +1,6 @@
-- Remove items
-- Persist items
-- Connect to dynamo through lambdas(axios, API gateway)
+- Persist items using fetch. In a local json file. ||
+- Use async fucntions 
+- Use Redux or hooks ||
+- Implent tests for components ||
+- Use more used Lifecycle functions 
 - Use a library to make it look better
-- Authentication
-- DB design 
