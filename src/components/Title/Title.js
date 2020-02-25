@@ -6,10 +6,10 @@ export default class Title extends React.Component {
         return(
             <div className="Title-container">
                 <div className="Title-img">
-                    <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.jpg" alt="logo"/>
+                    {/* <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.jpg" alt="logo"/> */}
                 </div>
                 <div className="Title-moto">
-                    <h1>This is the moto</h1>
+                    <h1>Todo list</h1>
                 </div>
             </div>
         );

@@ -41,16 +41,16 @@ export default class TextField extends React.Component {
     render() {
         return (
             <div className="TextField-form">
-                <ListItem items={this.state.items} onClick={this.onClickDelete}/>
                 <form action="">
-                    <div className="textfield">
+                    <div className="TextField-text">
                         <input type="text"  name='new_item' onChange={this.handleChange}
                                placeholder="Type text here"/>
                     </div>
-                    <div className="button">
+                    <div className="TextField-button">
                         <input type="button" onClick={this.onClickAdd} value="Add"/>
                     </div>
                 </form>
+                <ListItem items={this.state.items} onClick={this.onClickDelete}/>
             </div>
         );
     }

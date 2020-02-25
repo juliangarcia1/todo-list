@@ -1,3 +1,33 @@
 .ListItem-container {
-    background-color:white;
+    background-color:mediumpurple;
+    align-items: center;
+    
+}
+
+.ListItem-element {
+    /* border: 2px solid; */
+    
+}
+
+.ListItem-label {
+    display: inline-block;
+    width: 60%;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: deepskyblue;
+    text-align: center;
+    font-size: 14px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.ListItem-button {
+    display: inline-block;
+}
+.ListItem-button input {
+    background-color: #fff;
+    border-radius: 10px;
+    /* size: 50px; */
+    padding: 10px;
+    border: none;
+    font-size: 12px;
 }

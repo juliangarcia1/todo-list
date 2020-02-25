@@ -1,6 +1,8 @@
 .App {
-    text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: large;
     background-color: mediumpurple;
+    min-height: 600px;
+    width: 500px;
+    margin: 50px auto;
 }

@@ -9,11 +9,11 @@ export default class ListItem extends React.Component {
                 <form>
                     {this.props.items.map(item => {
                             return (
-                                <div key={item.key}>
-                                    <div  className="checkbox-label">
+                                <div key={item.key} className="ListItem-element">
+                                    <div  className="ListItem-label">
                                         <p >{item.value}</p>
                                     </div>
-                                    <div className="checkbox">
+                                    <div className="ListItem-button">
                                         <input type="button" onClick={(e) => {
                                             this.props.onClick(item.key)
                                         }
