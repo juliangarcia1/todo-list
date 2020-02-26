@@ -1,3 +1,6 @@
+body {
+    background-color:rgba(78, 64, 37, 0.411);
+}
 .App {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: large;
@@ -5,4 +8,6 @@
     min-height: 600px;
     width: 500px;
     margin: 50px auto;
+    border-radius: 20px;
+    padding:0 0 20px 0;
 }

@@ -7,7 +7,7 @@ export default class App extends React.Component {
   return (
     <div>
       <div className="App">
-        <Title />
+        <Title title="Todo List"/>
         <TextField />
       </div>
     </div>
