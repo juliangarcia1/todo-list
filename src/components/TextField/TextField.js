@@ -1,14 +1,28 @@
 import React from 'react';
 import './TextField.css'
 import ListItem from '../ListItem/ListItem';
-
+import Save from '../Save/Save';
 export default class TextField extends React.Component {
     constructor(props) {
         super(props);
+        // this.state = {items: [], new_item: ''};
         this.state = {items: [], new_item: ''};
         this.onClickAdd = this.onClickAdd.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+    }
+    componentDidMount() {
+        const filePath = './items.json';
+        fetch(filePath).then(function(response) {
+            return response.text();
+        }
+        ).then((data)=>(
+          this.setState(state=>({items:JSON.parse(data)}))
+        )
+        ).catch(
+            console.error('There were an error')
+        )
     }
 
     onClickAdd(event) {
@@ -48,6 +62,9 @@ export default class TextField extends React.Component {
                     </div>
                     <div className="TextField-button">
                         <input type="button" onClick={this.onClickAdd} value="Add"/>
+                    </div>
+                    <div className="TextField-autosave">
+                        <Save />
                     </div>
                 </form>
                 <ListItem items={this.state.items} onClick={this.onClickDelete}/>

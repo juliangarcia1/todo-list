@@ -5,8 +5,7 @@
 }
 
 .ListItem-element {
-    /* border: 2px solid; */
-    
+   background-color: transparent; 
 }
 
 .ListItem-label {
