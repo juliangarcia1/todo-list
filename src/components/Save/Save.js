@@ -5,48 +5,33 @@ import './Save.css';
 export default class Save extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {saveState:false}
+        this.saveList = this.saveList.bind(this);
+    }
+    
+    // saveList({target}) {
+    //     const filePath = './items.json';
+    //     const jsonContent = JSON.stringify(this.props.itemList);
+    // }
+    
+
+      
+    saveList() {
+        // const validJson = this.validateJson(this.state.json)
+    
+        // if (!validJson) return;
+
+        window.localStorage.setItem(
+            this.props.jsonKey,
+            this.props.itemList
+        )
     }
 
-    saveList(json) {
-        const filePath = './items.json';
-        const jsonContent = JSON.parser(json)
-        const head = { method: 'POST',
-                       body: jsonContent,
-                     }
-        var currentList;
-        fetch(filePath,
-              head
-        ).then(function(response) {
-            return response.text();
-        }
-        ).then(function(data){
-           currentList =  data
-        }
-        ).catch(
-            console.error('There were an error')
-        )
-        console.log(currentList)
-    }
-    // readList() {
-    //     const filePath = './items.json';
-    //     var currentList;
-    //     fetch(filePath).then(function(response) {
-    //         return response.text();
-    //     }
-    //     ).then(function(data){
-    //        currentList =  data
-    //     }
-    //     ).catch(
-    //         console.error('There were an error')
-    //     )
-    //     console.log(currentList)
-    // }
     render() {
         return(
             <div className="Save-container">
-                <button className="Save-button" items={this.props.itemsList} onClick={this.toggleAutoSave}>
-                    Auto Save
+                <button className="Save-button"
+                        onClick={this.saveList}>
+                    Save
                 </button>
             </div>
         );
