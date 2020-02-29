@@ -3,4 +3,6 @@
 - Use Redux or hooks ||
 - Implent tests for components ||
 - Use more used Lifecycle functions 
-- Use a library to make it look better
+- Use a library to make it look better:
+Done
+- Persist items using locolStorage
