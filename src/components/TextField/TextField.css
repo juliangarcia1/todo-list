@@ -1,12 +1,33 @@
 .TextField-form {
-    background-color: mediumpurple;
-
+    background-color: mediumpurple; 
+    text-align: center;
 }
 
 .TextField-text {
-    background-color: white;
+    background-color: transparent;
+    display: inline-block;
+    margin:20px;
+    width: 60%;
 }
 
 .TextField-button {
-    background-color:  white;
+    /* background-color: transparent; */
+    display: inline-block;
+    /* width: 20%; */
+}
+.TextField-text input{
+    background-color: rgb(239, 250, 82);
+    border: none;
+    border-radius: 30px;
+    width:100%
+}
+
+.TextField-button input{
+    /* width:60px; */
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
 }
