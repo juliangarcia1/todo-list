@@ -1,7 +1,6 @@
 import React from 'react';
 import './TextField.css'
 import ListItem from '../ListItem/ListItem';
-import Save from '../Save/Save';
 export default class TextField extends React.Component {
     constructor(props) {
         super(props);
@@ -11,28 +10,35 @@ export default class TextField extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.saveList = this.saveList.bind(this);
+        this.readList = this.readList.bind(this);
     }
+
     componentDidMount() {
-        const filePath = './items.json';
+        this.readList();   
+    }
+
+    readList(){
         const json = window.localStorage.getItem(this.state.jsonKey) || JSON.stringify([], null, 2)
-        const newJson = JSON.stringify(JSON.parse(json), null, 2)
+        const newJson = JSON.parse(json)
         this.setState(previousState => ({ items: newJson }));
-        // fetch(filePath).then(function(response) {
-        //     return response.text();
-        // }
-        // ).then((data)=>(
-        //   this.setState(state=>({items:JSON.parse(data)}))
-        // )
-        // ).catch(
-        //     console.error('There were an error')
-        // )
+    }
+
+    saveList() {
+        const items = this.state.items;
+        const jsonKey = this.state.jsonKey;
+        window.localStorage.setItem(
+            jsonKey,
+            JSON.stringify(items)
+        );
     }
 
     onClickAdd(event) {
         this.setState(previousState => ({
             items: [...previousState.items, {key: Date.now(),
                                              value: previousState.new_item}],
-        }));
+        }),()=>{this.saveList();});
+            
         console.log("It was clicked" + this.state.new_item);
 
     }
@@ -45,7 +51,6 @@ export default class TextField extends React.Component {
         console.log("It was clicked" + target);
     };
 
-
     onClickDelete(index) {
         var items = [...this.state.items];
 
@@ -53,7 +58,7 @@ export default class TextField extends React.Component {
         this.setState(previousState => ({
             items: items,
             new_item: previousState.new_item
-        }));
+        }), () => {this.saveList()});
     }
 
     render() {
@@ -72,9 +77,6 @@ export default class TextField extends React.Component {
                                onClick={this.onClickAdd} 
                                value="Add"
                         />
-                    </div>
-                    <div className="TextField-autosave">
-                        <Save itemList={this.state.items} jsonKey={this.state.jsonKey}/>
                     </div>
                 </form>
                 <ListItem items={this.state.items} 
