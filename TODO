@@ -1,8 +1,10 @@
 - Persist items using fetch. In a local json file. ||
 - Use async fucntions 
 - Use Redux or hooks ||
-- Implent tests for components ||
-- Use more used Lifecycle functions 
-- Use a library to make it look better:
+- Implemt tests for components ||
+- Add allow edit items feature
+- Use a library to make it look better
+- Add amplify to authenticate
 Done
 - Persist items using locolStorage
+- Use more used Lifecycle functions: componentDidMount, componentWillUnmount 
