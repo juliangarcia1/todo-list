@@ -1,6 +1,7 @@
 import React from 'react';
 import './TextField.css'
 import ListItem from '../ListItem/ListItem';
+import { SOURCE_TYPE_LOCAL } from '../../constants';
 export default class TextField extends React.Component {
     constructor(props) {
         super(props);
@@ -27,13 +28,16 @@ export default class TextField extends React.Component {
     saveList() {
         const items = this.state.items;
         const jsonKey = this.state.jsonKey;
-        window.localStorage.setItem(
-            jsonKey,
-            JSON.stringify(items)
-        );
+        if (this.props.source === SOURCE_TYPE_LOCAL) {
+            window.localStorage.setItem(
+                jsonKey,
+                JSON.stringify(items)
+            );
+        }
     }
 
     onClickAdd(event) {
+        event.preventDefault();
         this.setState(previousState => ({
             items: [...previousState.items, {key: Date.now(),
                                              value: previousState.new_item}],
@@ -51,7 +55,8 @@ export default class TextField extends React.Component {
         console.log("It was clicked" + target);
     };
 
-    onClickDelete(index) {
+    onClickDelete(event, index) {
+        event.preventDefault();
         var items = [...this.state.items];
 
         items = items.filter(item => item.key !== index);

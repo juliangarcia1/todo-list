@@ -1,0 +1,47 @@
+.mainMenu-container {
+    background-color: transparent;
+    padding:20px 0 0 20px;
+}
+
+.mainMenu-list{
+    background-color: transparent;
+    float: left;
+}
+
+.mainMenu-checkbox{
+    background-color: transparent;
+    display: none;
+    /* justify-content: space-evenly; */
+}
+
+.mainMenu-items {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainMenu-items a{
+    margin-left:20px;
+}
+
+i{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+    color: white;
+}
+
+a{
+    width: 100%;
+}
+
+.Menu-element{
+    float:left;
+    font-size: 1.2em;
+    margin: 10px 20px 0 0;
+    background-color: white;
+}
+
+.Menu-element a{
+    display: none;
+}

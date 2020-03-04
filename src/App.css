@@ -1,13 +1,48 @@
 body {
     background-color:rgba(78, 64, 37, 0.411);
+    /* float:left; */
 }
 .App {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: large;
     background-color: mediumpurple;
     min-height: 600px;
-    width: 500px;
+    /* width: 500px; */
+    width: 80%;
     margin: 50px auto;
     border-radius: 20px;
     padding:0 0 20px 0;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.Menu {
+    background-color: black;
+    border: 1px dashed;
+    width: 50px;
+    color: white;
+    position: fixed;
+    left: 5%;
+    height:100%;
+
+}
+
+.Menu:hover {
+    border: 1px red dashed;
+    width: auto;
+}
+
+.Menu:hover .Menu-element a{
+    display: inline;
+}
+
+.Menu:hover .mainMenu-checkbox{
+    display: inline;
+}
+
+.Content {
+    border: 1px dashed;
+    width:400px
+    /* flex:1 1 20%; */
 }
