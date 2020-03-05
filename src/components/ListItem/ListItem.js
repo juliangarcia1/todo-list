@@ -14,10 +14,12 @@ export default class ListItem extends React.Component {
                                         <p >{item.value}</p>
                                     </div>
                                     <div className="ListItem-button">
-                                        <input type="button" onClick={(e) => {
-                                            this.props.onClick(item.key)
-                                        }
-                                        } value="Delete"/>
+                                        <input type="button" 
+                                               onClick={(e) => {
+                                                    this.props.onClick(e, item.key)
+                                                    }
+                                                } 
+                                               value="Delete"/>
                                     </div>
                                 </div>
                             );
