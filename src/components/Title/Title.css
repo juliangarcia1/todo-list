@@ -23,5 +23,7 @@ img{
     color: #777;
     background-color: rgba(243, 172, 39, 0.589);
     border-radius: 20px 20px 0px 0px;
+    padding: 10px 0;
+    font-size: xx-large;
     
 }
