@@ -24,13 +24,6 @@
     margin-left:20px;
 }
 
-i{
-    background-color: yellow;
-    width: 150px;
-    height: 150px;
-    color: white;
-}
-
 a{
     width: 100%;
 }
@@ -40,8 +33,19 @@ a{
     font-size: 1.2em;
     margin: 10px 20px 0 0;
     background-color: grey;
+    color:white;
+}
+
+.Menu-element:hover {
+    color:black;
+}
+
+.Menu-element:hover a {
+    color:black;
 }
 
 .Menu-element a{
     display: none;
+    color: white;
+    text-decoration: none;
 }
