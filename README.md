@@ -1,6 +1,6 @@
 ## Introduction
 
-![Todo-List](documentation/src/todo-empty.png)
+![Todo-List](documentation/src/todo-empty.png=300)
 
 This is a sample project using React JS. 
 The project is a Todo-List system, the following
