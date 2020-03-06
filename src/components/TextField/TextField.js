@@ -2,7 +2,9 @@ import React from 'react';
 import './TextField.css'
 import ListItem from '../ListItem/ListItem';
 import { SOURCE_TYPE_LOCAL } from '../../constants';
-export default class TextField extends React.Component {
+import { addItem, deleteItem } from "./actions/itemActions";
+import { bindActionCreators } from "redux";
+class TextField extends React.Component {
     constructor(props) {
         super(props);
         // this.state = {items: [], new_item: ''};
@@ -91,3 +93,12 @@ export default class TextField extends React.Component {
         );
     }
 }
+const mapStateToProps = state => ({
+    source: state.source
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ addItem, deleteItem }, dispatch)
+});
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(TextField);
