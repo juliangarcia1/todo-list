@@ -1,11 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import './ListItem.css';
+import { addItem , deleteItem } from '../../actions/itemActions';
+import {SOURCE_TYPE_LOCAL} from '../../constants';
 
+class ListItem extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {};
+        this.saveList = this.saveList.bind(this);
+        this.onClickDelete = this.onClickDelete.bind(this);
+    }
 
-export default class ListItem extends React.Component {
+    saveList() {
+        const items = this.props.items;
+        const jsonKey = this.props.jsonKey;
+        if (this.props.source === SOURCE_TYPE_LOCAL) {
+            window.localStorage.setItem(
+                jsonKey,
+                JSON.stringify(items)
+            );
+        }
+    }
+    
+    onClickDelete(event, index) {
+        event.preventDefault();
+        this.props.actions.deleteItem(index);
+        this.saveList();
+    }
+
     render() {
         return (
-            <div className="ListItem-container">
+           <div className="ListItem-container">
                 <form>
                     {this.props.items.map(item => {
                             return (
@@ -16,7 +44,7 @@ export default class ListItem extends React.Component {
                                     <div className="ListItem-button">
                                         <input type="button" 
                                                onClick={(e) => {
-                                                    this.props.onClick(e, item.key)
+                                                    this.onClickDelete(e, item.key)
                                                     }
                                                 } 
                                                value="Delete"/>
@@ -30,3 +58,16 @@ export default class ListItem extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    items: state.data.items,
+    source: state.data.source,
+    jsonKey: state.data.jsonKey
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ addItem, deleteItem }, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
+
