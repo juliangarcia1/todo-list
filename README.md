@@ -13,15 +13,15 @@ are some done features and some features to be done:
     Pass information from parent to child component
     Use route for diferent paths definitions
     Reuse component passing props through Route
+    Use Redux to handle the state of the application.
+    Add some tests
 
 
 ### To be done:
-    Use Redux to handle the state of the application.
-    or
-    Use Hooks to handle Life-Cycle functions in functional components instead of class components
-    Add tests
     Connect to AWS to store the list items
     Connect to AWS to store deleted list items
     Use Authentication-Amplify to get authorization per user
+    After enter in textbox should add, now clear the text.
+    X - Use Hooks to handle Life-Cycle functions in functional components instead of class components
 
 
