@@ -16,9 +16,10 @@ are some done features and some features to be done:
 
 
 ### To be done:
-    Use Hooks to handle Life-Cycle fucntions in functional components instead of class components
-    or
     Use Redux to handle the state of the application.
+    or
+    Use Hooks to handle Life-Cycle functions in functional components instead of class components
+    Add tests
     Connect to AWS to store the list items
     Connect to AWS to store deleted list items
     Use Authentication-Amplify to get authorization per user

@@ -1,15 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import './TextField.css'
 import ListItem from '../ListItem/ListItem';
+import { addItem, deleteItem } from '../../actions/itemActions';
 import { SOURCE_TYPE_LOCAL } from '../../constants';
-export default class TextField extends React.Component {
+class TextField extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {items: [], new_item: ''};
+        this.state = {items: [], new_item: ''};
+        this.new_item = null;
         this.state = {items: [], new_item: '', jsonKey:"items.json"};
         this.onClickAdd = this.onClickAdd.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.onClickDelete = this.onClickDelete.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
         this.saveList = this.saveList.bind(this);
         this.readList = this.readList.bind(this);
@@ -38,13 +42,11 @@ export default class TextField extends React.Component {
 
     onClickAdd(event) {
         event.preventDefault();
-        this.setState(previousState => ({
-            items: [...previousState.items, {key: Date.now(),
-                                             value: previousState.new_item}],
-        }),()=>{this.saveList();});
-            
-        console.log("It was clicked" + this.state.new_item);
-
+        this.setState(previousState => {
+            const newItem = {key: Date.now(), value: previousState.new_item};
+            this.props.actions.addItem(newItem);
+            return {items: [...previousState.items, newItem ]}
+        },()=>{this.saveList();});
     }
 
     handleChange({target}) {
@@ -54,17 +56,6 @@ export default class TextField extends React.Component {
 
         console.log("It was clicked" + target);
     };
-
-    onClickDelete(event, index) {
-        event.preventDefault();
-        var items = [...this.state.items];
-
-        items = items.filter(item => item.key !== index);
-        this.setState(previousState => ({
-            items: items,
-            new_item: previousState.new_item
-        }), () => {this.saveList()});
-    }
 
     render() {
         return (
@@ -84,10 +75,17 @@ export default class TextField extends React.Component {
                         />
                     </div>
                 </form>
-                <ListItem items={this.state.items} 
-                          onClick={this.onClickDelete}
-                />
+                <ListItem/>
             </div>
         );
     }
 }
+const mapStateToProps = state => ({
+    items: state.data.items
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ addItem, deleteItem }, dispatch)
+});
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(TextField);

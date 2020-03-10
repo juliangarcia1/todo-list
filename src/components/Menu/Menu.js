@@ -12,7 +12,7 @@ const mainMenu = (props) => {
             <div className="mainMenu-list">
                     <div className="mainMenu-checkbox">
                         <input type="checkbox" name="storage-selector"/>
-                        <label for="storage-selector">Cloud Storage</label>
+                        <label htmlFor="storage-selector">Cloud Storage</label>
                     </div>
                     <div className="mainMenu-items">
                         <div className="Menu-element"><FontAwesomeIcon icon={faList} /><a href="/#"> Show List</a></div>
