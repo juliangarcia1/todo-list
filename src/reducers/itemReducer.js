@@ -11,9 +11,10 @@ const intialState = {items: newJson,
 const itemReducer = (state = intialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
-            return {items: [...state.items, action.payload]};
+            return {...state, items: [...state.items, action.payload]};
         case DELETE_ITEM:
-            return {items: state.items.filter(item=>item.key !== action.payload)};
+            console.log('ACTION {action.type}')
+            return {...state, items: state.items.filter(item=>item.key !== action.payload)};
         case SET_SOURCE:
             return {...state, jsonSource: action.payload};
         default:

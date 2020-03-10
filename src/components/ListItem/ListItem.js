@@ -15,9 +15,10 @@ class ListItem extends React.Component {
     }
 
     saveList() {
+        console.log('Saving List');
         const items = this.props.items;
         const jsonKey = this.props.jsonKey;
-        if (this.props.source === SOURCE_TYPE_LOCAL) {
+        if (this.props.jsonSource === SOURCE_TYPE_LOCAL) {
             window.localStorage.setItem(
                 jsonKey,
                 JSON.stringify(items)
@@ -27,8 +28,7 @@ class ListItem extends React.Component {
     
     onClickDelete(event, index) {
         event.preventDefault();
-        this.props.actions.deleteItem(index);
-        this.saveList();
+        this.props.actions.deleteItem(index).then(()=>this.saveList());
     }
 
     render() {
@@ -61,7 +61,7 @@ class ListItem extends React.Component {
 
 const mapStateToProps = state => ({
     items: state.data.items,
-    source: state.data.source,
+    jsonSource: state.data.jsonSource,
     jsonKey: state.data.jsonKey
 });
 

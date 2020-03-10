@@ -6,11 +6,19 @@ import Title from './Title';
 
 // spy(Title.prototype, 'componentDidMount');
 
-describe('<Foo />', () => {
+describe('<Title />', () => {
     let wrapper;
-    beforeEach(() => { wrapper = shallow(<Title/>); });
+    beforeEach(() => { wrapper = shallow(<Title title='Hello'/>) });
 
-    it('Check text', () => {
-        expect(wrapper.find('div.Title-img'));
+    it('Check has a Title-moto class', () => {
+        expect(wrapper.find('div.Title-moto')).to.have.length(1);
+    });
+
+    it('Check pass title text in props', () => {
+        expect(wrapper.instance().props.title).to.equal('Hello');
+    });
+    
+    it('Header 1 contains the title passed in props', () => {
+        expect(wrapper.find('h1').text()).to.equal('Hello');
     });
 });
