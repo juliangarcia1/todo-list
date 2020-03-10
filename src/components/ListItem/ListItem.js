@@ -28,10 +28,11 @@ class ListItem extends React.Component {
     
     onClickDelete(event, index) {
         event.preventDefault();
-        this.props.actions.deleteItem(index).then(()=>this.saveList());
+        this.props.actions.deleteItem(index);
     }
 
     render() {
+        this.saveList();
         return (
            <div className="ListItem-container">
                 <form>
@@ -59,6 +60,15 @@ class ListItem extends React.Component {
     }
 }
 
+// function updateItems(state) {
+    
+// }
+
+// function updateProps() {
+
+// }
+
+// const unsubscribe = store.subscribe(this.updateProps);
 const mapStateToProps = state => ({
     items: state.data.items,
     jsonSource: state.data.jsonSource,
