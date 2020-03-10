@@ -71,20 +71,18 @@ body {
 
 .Menu {
     background-color: black;
-    border: 1px dashed;
+    /* border: 1px dashed; */
     width: 50px;
     color: white;
     position: fixed;
     left: 0%;
     height:100%;
-    transition: width 2s;
+    transition: width 1s linear;
     overflow: hidden;
 }
 
 .Menu:hover {
-    border: 1px red dashed;
-    /* width: auto; */
-    width: 300px;
+    width: 250px;
 }
 
 .Menu:hover .Menu-element a{

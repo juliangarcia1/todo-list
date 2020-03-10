@@ -10,8 +10,8 @@
 
 .mainMenu-checkbox{
     background-color: transparent;
-    display: none;
-    /* justify-content: space-evenly; */
+    white-space: nowrap;
+    visibility: hidden;
 }
 
 .mainMenu-items {
@@ -29,23 +29,36 @@ a{
 }
 
 .Menu-element{
-    float:left;
     font-size: 1.2em;
     margin: 10px 20px 0 0;
     background-color: grey;
     color:white;
+    white-space:nowrap;
+    width:fit-content;
+
 }
 
 .Menu-element:hover {
     color:black;
+}
+.Menu-element a {
+    display: None;
 }
 
 .Menu-element:hover a {
     color:black;
 }
 
+.Menu:hover .mainMenu-checkbox {
+    visibility: visible;
+}
+
 .Menu-element a{
     display: none;
     color: white;
     text-decoration: none;
+}
+
+.Menu:hover .Menu-element {
+    width: unset;
 }
