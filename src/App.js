@@ -6,6 +6,7 @@ import './App.css';
 import Title from './components/Title/Title';
 import TextField from './components/TextField/TextField';
 import Menu from './components/Menu/Menu';
+import MainMenu from './components/Menu/Menu-ui';
 import store from './store';
 import { SOURCE_TYPE_LOCAL, SOURCE_TYPE_REMOTE } from './constants';
 export default class App extends React.Component {
@@ -17,6 +18,9 @@ export default class App extends React.Component {
                         <Router>
                             <div className="Menu">
                                 <Menu />
+                            </div>
+                            <div className="mainMenu">
+                                <MainMenu/>
                             </div>
                             <div className="Content">
                                 <Title title="Todo List" />
